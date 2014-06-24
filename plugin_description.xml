@@ -1,0 +1,10 @@
+<library path="lib/librviz_plugin_odometry_covariance">
+  <class name="rviz_plugin_odometry_covariance/OdometryCovariance"
+         type="rviz_plugin_odometry_covariance::OdometryCovarianceDisplay"
+         base_class_type="rviz::Display">
+    <description>
+      EMPTY
+    </description>
+    <message_type>nav_msgs/Odometry</message_type>
+  </class>
+</library>
