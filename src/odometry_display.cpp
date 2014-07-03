@@ -269,9 +269,6 @@ void OdometryCovarianceDisplay::incomingMessage( const nav_msgs::Odometry::Const
     double min = std::max(.01, sqrt(eigValues[1]));
     Ogre::Vector3 covScale( maj, .0001, min );
     ellipse->setScale( covScale );
-    std::cout << "min " << min << " max " << maj << "angle " << angle << std::endl;
-    std::cout << Ogre::Quaternion() << std::endl;
-    std::cout << Ogre::Quaternion( 0, 0, cos(angle/2), sin(angle/2) ).getYaw() << std::endl;
     ellipse -> setOrientation( Ogre::Quaternion( cos(angle/2), 0, 0, sin(angle/2) ) * Ogre::Quaternion( Ogre::Degree(-90), Ogre::Vector3::UNIT_X ));
     //ellipse->setOrientation( Ogre::Quaternion( Ogre::Degree(angle), Ogre::Vector3::UNIT_Y) *
     //      Ogre::Quaternion( Ogre::Degree( -90 ), Ogre::Vector3::UNIT_X ));
@@ -305,7 +302,6 @@ void OdometryCovarianceDisplay::transformArrowAndEllipse( const nav_msgs::Odomet
 
   arrow->setPosition( position );
   if (ellipse != NULL) {
-    std::cout << "NON NULL COV" << std::endl;
     ellipse->setPosition( position );
   }
 
